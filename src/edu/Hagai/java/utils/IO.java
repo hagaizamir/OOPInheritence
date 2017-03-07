@@ -1,31 +1,31 @@
-package edu.Hagai.java;
+package edu.Hagai.java.utils;
 
         import java.time.LocalDateTime;
         import java.util.Scanner;
 
 public class IO {
-    static Scanner scan = new Scanner(System.in);
+    private static Scanner scan = new Scanner(System.in);
 
     /**
      * This method prints an array of integers
      *
      * @param arr an integer array that we want to print
      */
-    static void print(int[] arr) {
+    public static void print(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.printf("%4d", arr[i]);
         }
         System.out.println();
     }
 
-    static void print(int[][] arr) {
+    public static void print(int[][] arr) {
         for (int i = 0; i < arr.length; i++) {
             print(arr[i]);
         }
     }
 
 
-    static void printPretty(int[][] arr) {
+    public static void printPretty(int[][] arr) {
         System.out.printf("%4s", "");
 
         for (int i = 0; i < arr[0].length; i++) {
@@ -44,20 +44,20 @@ public class IO {
     }
 
 
-    static void print(String[] arr) {
+    public static void print(String[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.printf("%4s", arr[i]);
         }
         System.out.println();
     }
 
-    static void print(String[][] arr) {
+    public static void print(String[][] arr) {
         for (int i = 0; i < arr.length; i++) {
             print(arr[i]);
         }
     }
 
-    static void printBoard(String[] arr) {
+    public static void printBoard(String[] arr) {
         System.out.printf("|");
         for (int i = 0; i < arr.length; i++) {
             System.out.printf("%4s|", arr[i]);
@@ -65,7 +65,7 @@ public class IO {
         System.out.printf("\n________________\n");
     }
 
-    static void printBoard(String[][] arr) {
+    public static void printBoard(String[][] arr) {
         System.out.printf("\n________________\n");
         for (int i = 0; i < arr.length; i++) {
             printBoard(arr[i]);
@@ -78,19 +78,19 @@ public class IO {
         return n;
     }
 
-    static String getString(String message) {
+    public static String getString(String message) {
         if (!message.endsWith(":") && !message.endsWith(": "))
             message += ": ";
         System.out.println(message);
         return scan.next();
     }
 
-    static String getSentence(String prompt) {
+    public static String getSentence(String prompt) {
         System.out.println(prompt);
         return scan.nextLine();
     }
 
-    static int[] getIntArray(String prompt) {
+    public static int[] getIntArray(String prompt) {
         //ask the user for the size:
         int n = getInt("Enter the array size");
         //init an array of the requested size:
@@ -102,7 +102,7 @@ public class IO {
         return result;
     }
 
-    static String[] getStringArray(String message, int size) {
+    public static String[] getStringArray(String message, int size) {
         String[] result = new String[size];
         for (int i = 0; i < result.length; i++) {
             System.out.println(message);
@@ -111,7 +111,7 @@ public class IO {
         return result;
     }
 
-    static int[][] getIntArraydbl() {
+    public static int[][] getIntArraydbl() {
         int size = IO.getInt("Enter the array size", 0);
         int[][] arr = new int[size][size];
 
@@ -124,7 +124,7 @@ public class IO {
         return arr;
     }
 
-    static int getInt(String prompt, int from, int to) {
+    public static int getInt(String prompt, int from, int to) {
         int result;
         do {
             result = getInt(prompt);
@@ -140,7 +140,7 @@ public class IO {
         return LocalDateTime.of(year, month, day, 0, 0);
     }
 
-    static int getInt(String prompt, int from) {
+    public static int getInt(String prompt, int from) {
         return getInt(prompt, from, Integer.MAX_VALUE);
     }
 
@@ -152,4 +152,13 @@ public class IO {
         System.out.println();
     }
 
+    public static Float getFloat(String prompt) {
+        System.out.println(prompt);
+        return scan.nextFloat();
+    }
+
+    public static double getDouble(String prompt) {
+        System.out.println(prompt);
+        return scan.nextDouble();
+    }
 }

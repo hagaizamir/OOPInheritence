@@ -15,8 +15,17 @@ import java.util.Scanner;
 
 public class Main {
 
+
     public static void main(String[] args) {
 	// write your code here
+
+//        public static void main(String[] args) {
+//            Object o = new Object();
+//            System.out.println(o.getClass().getName());
+//
+//            System.out.println(o.getClass().getSimpleName())
+//        }
+
 //        Cow c = new Cow("Matilda");
 //        System.out.println(c.toString());
 //        VIPPassenger p = new VIPPassenger("Dave" , 22 , 0.5);
@@ -43,6 +52,8 @@ public class Main {
         Flight f = new Flight();
         f.bookFlight(vipPassenger);
         f.bookFlight(moe);
+
+
     }
 }
 

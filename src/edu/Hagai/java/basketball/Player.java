@@ -1,45 +1,86 @@
 package edu.Hagai.java.basketball;
 
-import edu.Hagai.java.IO;
-import edu.Hagai.java.MRandom;
+import edu.Hagai.java.utils.IO;
+
+import java.time.LocalDateTime;
+import edu.Hagai.java.utils.DateUtils;
+import edu.Hagai.java.utils.IO;
+import edu.Hagai.java.utils.RandomUtils;
+
+import java.time.LocalDateTime;
 
 /**
  * Created by Android2017 on 3/3/2017.
  */
-public class Player {
+class Player {
     private String firstName;
-    private String lastName;
-    private double percentFromLine;
-    private double percentFromField;
+    private LocalDateTime birthDate;
+    private Float height = 20.0F;
+    private int shirtNumber;
+    private int pctFromTheLine;
+    private int pctFromTheField;
+    private int pctFromThree;
+    private String category;
 
-    public Player(String firstName, String lastName, double percentFromLine, double percentFromField) {
-        this.firstName = IO.getString("Enter first name");
-        this.lastName = IO.getString("Enter last name");
-        this.percentFromLine = percentFromLine;
-        this.percentFromField = percentFromField;
+    //Constructors:
+    public Player(String firstName, LocalDateTime birthDate, Float height, int shirtNumber, int pctFromTheLine, int pctFromTheField, int pctFromThree, String category) {
+        this.firstName = firstName;
+        this.birthDate = birthDate;
+        this.height = height;
+
+        this.shirtNumber = shirtNumber;
+        this.pctFromTheLine = pctFromTheLine;
+        this.pctFromTheField = pctFromTheField;
+        this.pctFromThree = pctFromThree;
+        this.category = category;
     }
-
     public Player() {
-
+        this.firstName = IO.getString("Enter First Name: ");
+        this.birthDate = DateUtils.getDate("Enter birth date:");
+        this.height = IO.getFloat("Enter Height:");
+        this.shirtNumber = IO.getInt("Enter Shirt Number:");
+        this.pctFromTheLine =  IO.getInt("Enter Pct from the line:");
+        this.pctFromTheField = IO.getInt("Enter Pct from the Field:");
+        this.pctFromThree =  IO.getInt("Enter Pct from the Three:");
+        this.category = "Player";
     }
 
-
-    //methods
-    public boolean throwFromLine() {
-        MRandom m = new MRandom();
-        int i = m.nextInt(1, 100);
-        return i <= percentFromLine;
-
+    //public API:
+    //application program interface:
+    public void dribble(){
+        System.out.println("Dribbling");
     }
 
-
-    public boolean throwField() {
-        MRandom m = new MRandom();
-        int i = m.nextInt(1, 100);
-        return i <= percentFromField;
-
+    public boolean throwFrom2(){
+        int r = RandomUtils.nextRandom(0, 100);
+        return r < pctFromTheField;
     }
 
+    public boolean throwFrom3(){
+        int r = RandomUtils.nextRandom(0, 100);
+        return r < pctFromThree;
+    }
+
+    public boolean throwFromLine(){
+        int r = RandomUtils.nextRandom(0, 100);
+        return r < pctFromTheLine;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "firstName='" + firstName + '\'' +
+                ", birthDate=" + birthDate +
+                ", height=" + height +
+                ", shirtNumber=" + shirtNumber +
+                ", pctFromTheLine=" + pctFromTheLine +
+                ", pctFromTheField=" + pctFromTheField +
+                ", pctFromThree=" + pctFromThree +
+                ", category='" + category + '\'' +
+                '}';
+    }
+
+    //getters and setters:
     public String getFirstName() {
         return firstName;
     }
@@ -48,28 +89,60 @@ public class Player {
         this.firstName = firstName;
     }
 
-    public String getLastName() {
-        return lastName;
+    public LocalDateTime getBirthDate() {
+        return birthDate;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setBirthDate(LocalDateTime birthDate) {
+        this.birthDate = birthDate;
     }
 
-    public double getPercentFromLine() {
-        return percentFromLine;
+    public Float getHeight() {
+        return height;
     }
 
-    public void setPercentFromLine(double percentFromLine) {
-        this.percentFromLine = percentFromLine;
+    public void setHeight(Float height) {
+        this.height = height;
     }
 
-    public double getPercentFromField() {
-        return percentFromField;
+    public int getShirtNumber() {
+        return shirtNumber;
     }
 
-    public void setPercentFromField(double percentFromField) {
-        this.percentFromField = percentFromField;
+    public void setShirtNumber(int shirtNumber) {
+        this.shirtNumber = shirtNumber;
+    }
+
+    public int getPctFromTheLine() {
+        return pctFromTheLine;
+    }
+
+    public void setPctFromTheLine(int pctFromTheLine) {
+        this.pctFromTheLine = pctFromTheLine;
+    }
+
+    public int getPctFromTheField() {
+        return pctFromTheField;
+    }
+
+    public void setPctFromTheField(int pctFromTheField) {
+        this.pctFromTheField = pctFromTheField;
+    }
+
+    public int getPctFromThree() {
+        return pctFromThree;
+    }
+
+    public void setPctFromThree(int pctFromThree) {
+        this.pctFromThree = pctFromThree;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
 

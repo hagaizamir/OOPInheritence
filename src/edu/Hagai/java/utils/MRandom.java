@@ -1,4 +1,4 @@
-package edu.Hagai.java;
+package edu.Hagai.java.utils;
 
 import java.util.Random;
 
