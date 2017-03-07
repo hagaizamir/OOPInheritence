@@ -23,6 +23,11 @@ public class CenterPlayer extends Player{
 
     }
 
+    @Override
+    public void whatsYourCategory() {
+
+    }
+
     //public API:
     public void pass(){
         System.out.println("Passing");

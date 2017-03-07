@@ -1,5 +1,6 @@
 package edu.Hagai.java;
 
+import edu.Hagai.java.basketball.Team;
 import edu.Hagai.java.terminal.VIPPassenger;
 import edu.Hagai.java.zoo.Cow;
 import edu.Hagai.java.terminal.Flight;
@@ -18,6 +19,21 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
+        Team t = new Team("Chicago");
+        Team t2 = new Team("HBS");
+
+        for (int i = 0; i <1 ; i++) {
+            t.add();
+            t2.add();
+
+        }
+        int tScore = t.teamThrowFromThree();
+        int t2Score = t2.teamThrowFromThree();
+
+        if (tScore > t2Score)
+            System.out.println(t.getName()  +"wins");
+        else if (t2Score>tScore)
+            System.out.println(t.getName () + "wins");
 
 //        public static void main(String[] args) {
 //            Object o = new Object();

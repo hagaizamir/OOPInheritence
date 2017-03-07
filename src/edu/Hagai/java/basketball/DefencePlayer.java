@@ -22,6 +22,11 @@ public class DefencePlayer extends Player{
 
     }
 
+    @Override
+    public void whatsYourCategory() {
+
+    }
+
     //public API:
     public void block(){
         System.out.println("Blocking");

@@ -7,6 +7,7 @@ public class Team {
     //composition vs aggregation
     private ArrayList<Player> players = new ArrayList<>();
     private String name;
+    public boolean getName;
 
 
     //constructors:
@@ -45,10 +46,18 @@ public class Team {
         }
     }
 
-    public void teamThrowFromThree(){
+    public int teamThrowFromThree(){
+        int score = 0;
         for (Player p : players) {
             boolean didScore = p.throwFrom3();
+            System.out.println(p.getFirstName()+" ");
             System.out.println(didScore?"Scored": "Missed...");
+            score += didScore? 3 : 0;
         }
+        return score;
+    }
+
+    public String getName() {
+        return name;
     }
 }

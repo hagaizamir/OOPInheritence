@@ -21,6 +21,11 @@ public class OffencePlayer extends Player{
         setCategory(category);
     }
 
+    @Override
+    public void whatsYourCategory() {
+
+    }
+
     //public API:
     public void pass(){
         System.out.println("Passing");

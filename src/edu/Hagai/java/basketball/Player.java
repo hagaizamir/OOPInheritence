@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 /**
  * Created by Android2017 on 3/3/2017.
  */
-class Player {
+public abstract class Player {
     private String firstName;
     private LocalDateTime birthDate;
     private Float height = 20.0F;
@@ -65,6 +65,7 @@ class Player {
         int r = RandomUtils.nextRandom(0, 100);
         return r < pctFromTheLine;
     }
+   public abstract void whatsYourCategory();
 
     @Override
     public String toString() {
